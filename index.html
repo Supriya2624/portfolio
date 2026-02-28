@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <title>Supriya Portfolio</title>
+    <link rel="stylesheet" href="home.css" />
+
+    <!-- Typing cursor style -->
+    <style>
+        .typewriter span::after {
+            content: "";
+            margin-left: 5px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75% { opacity: 0; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-out" data-aos-duration="1000">
+                <span>Brahmanapalli Supriya</span>
+            </div>
+
+            <div class="links">
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100"><a href="index.html" class="active">Home</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"><a href="about.html">About</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300"><a href="Skills.html">Skills</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500"><a href="project.html">Projects</a></div>
+                <div class="link contact-btn" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600"><a href="contact.html">Contact Us</a></div>
+            </div>
+
+            <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+        </div>
+
+        <div class="dropdown">
+            <div class="links">
+                <a href="home2.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="Skills.html">Skills</a>
+                <a href="Experience.html">Experience</a>
+                <a href="project.html">Project</a>
+                <a href="contact.html">Contact Us</a>
+                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section>
+        <div class="main-container">
+            <div class="image" data-aos="zoom-in-right" data-aos-duration="2500">
+                <img src="ma.png" alt="" />
+            </div>
+
+            <div class="content">
+                <h1 data-aos="fade-left" data-aos-duration="1000">
+                    Hey I'm <span>Brahmanapalli Supriya</span>
+                </h1>
+
+                <!-- 🔥 TYPING EFFECT -->
+                <div class="typewriter" data-aos="fade-right" data-aos-duration="1000">
+                    I'm a <span id="typing-text"></span>
+                </div>
+
+                <p data-aos="flip-up" data-aos-duration="1000">
+                    Delivering stunning, user-centered designs that captivate and engage. Combining clean, efficient code to create seamless, responsive interfaces. Dedicated to transforming ideas into impactful digital experiences that drive results.
+                </p>
+
+                <div class="btn" data-aos="zoom-out-left" data-aos-duration="3000" >
+                    <a href="https://drive.google.com/file/d/1lRxuYt1x0ws9-kKZcZLNgInP78k3ENwR/view?usp=sharing" target="_blank">
+                    <button>Resume</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ offset: 0 });
+    </script>
+
+    <!-- NAV SCRIPT -->
+    <script>
+        function hamburg() {
+            document.querySelector(".dropdown").style.transform = "translateY(0)";
+        }
+        function cancel() {
+            document.querySelector(".dropdown").style.transform = "translateY(-500px)";
+        }
+    </script>
+
+    <!-- 🔥 TYPING EFFECT SCRIPT -->
+    <script>
+        const words = [
+            "Front End Developer",
+            "UI/UX Designer"
+        ];
+
+        let wordIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+
+        const typingText = document.getElementById("typing-text");
+
+        function typeEffect() {
+            const currentWord = words[wordIndex];
+
+            if (!deleting) {
+                typingText.textContent = currentWord.slice(0, charIndex + 1);
+                charIndex++;
+            } else {
+                typingText.textContent = currentWord.slice(0, charIndex - 1);
+                charIndex--;
+            }
+
+            let speed = deleting ? 70 : 120;
+
+            if (!deleting && charIndex === currentWord.length) {
+                speed = 1500;
+                deleting = true;
+            } 
+            else if (deleting && charIndex === 0) {
+                deleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                speed = 500;
+            }
+
+            setTimeout(typeEffect, speed);
+        }
+
+        typeEffect();
+    </script>
+</body>
+</html>

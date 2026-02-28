@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <title>Supriya Portfolio</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1000">
+                <span>Brahmanapalli Supriya</span>
+            </div>
+            <div class="links">
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100"><a href="index.html">Home</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"><a href="about.html" >About</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300"><a href="Skills.html">Skills</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500"><a href="project.html">Projects</a></div>
+                <div class="link contact-btn" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600"><a href="contact.html" class="active">Contact Us</a></div>
+            </div>
+            <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+        </div>
+        
+    </nav>
+    <br>
+         <div class="header-section" data-aos="zoom-in" data-aos-duration="2500">
+        <h1 data-aos="flip-down" data-aos-duration="10000">CONTACT US</h1>
+    </div>
+
+    <div class="contact-info-container" >
+        <div class="contact-block" data-aos="fade-right" data-aos-duration="1500">
+            <h3>name</h3>
+            <p>Brahmanapalli Supriya</p>
+        </div>
+        <div class="contact-block" data-aos="fade-up" data-aos-duration="1500">
+            <h3>PHONE</h3>
+            <p>+91 8688503332</p>
+        </div>
+        <div class="contact-block" data-aos="fade-left" data-aos-duration="1500">
+            <h3>e-mail</h3>
+            <p>supriyabrahmanapalli28@gmail.com</p>
+        </div>
+    </div>
+    <div class="footer-text" data-aos="zoom-out" data-aos-duration="1500">
+        <p>I Craft intuitive UI/UX dessigns and responsive front-end experiences.</p>
+        <p>My strengths include user-centered design, clean code, and visual clarity.</p>
+        <p>I focus on buildongaccessible, high-performance interfaces.</p>
+        <p>Every project reflects attention to detail and usability.</p>
+        <p>Let's connect to create impactful digital experiences.</p>
+    </div>
+
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+          AOS.init({offset:0});
+        </script>
+        <script>
+            function hamburg(){
+                const navbar = document.querySelector(".dropdown")
+                navbar.style.transform = "translateY(0px)"
+            }
+            function cancel(){
+                const navbar = document.querySelector(".dropdown")
+                navbar.style.transform = "translateY(-500px)"
+            }
+        </script>
+        <script>
+  const counters = document.querySelectorAll('.stat-value');
+  let started = false;
+
+  function startCounters() {
+    if (started) return;
+    started = true;
+
+    counters.forEach(counter => {
+      const target = +counter.getAttribute('data-target');
+      let duration = 1200; // total animation time (ms)
+      let intervalTime = 80;
+      let elapsed = 0;
+
+      const interval = setInterval(() => {
+        elapsed += intervalTime;
+
+        if (elapsed >= duration) {
+          counter.innerText = target; // final correct value
+          clearInterval(interval);
+        } else {
+          // RANDOM number (can be greater than target)
+          const randomValue = Math.floor(
+            Math.random() * (target * 3 + 10)
+          );
+          counter.innerText = randomValue;
+        }
+      }, intervalTime);
+    });
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      startCounters();
+    }
+  }, { threshold: 0.5 });
+
+  observer.observe(document.querySelector('.hero-stats'));
+</script>
+
+</body>
+</html>
+   

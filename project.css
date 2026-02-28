@@ -1,0 +1,252 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+    scroll-behavior: auto;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(to right, rgb(255,255,255), rgb(254,215,173));
+}nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background:  linear-gradient(to right, rgb(255,255,255), rgb(254,215,173));
+    transition: all 0.35s ease;
+}
+
+/* Separation effect on scroll */
+nav.scrolled {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(8px);
+}
+
+.nav-container {
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+.logo {
+    color: black;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.logo span {
+    color: rgb(109,67,0);
+}
+
+.hamburg, .cancel {
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: black;
+    font-size: 2rem;
+    display: none;
+}
+
+.nav-container .links {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+.nav-container .links a {
+    position: relative;
+    font-size: 1.2rem;
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.nav-container .links a::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: rgb(109,67,0);
+    transform: translateX(-50%);
+    transition: width 0.35s ease;
+    border-radius: 20px;
+}
+
+.nav-container .links a:hover {
+    transform: scale(1.15);
+    color: rgb(109,67,0);
+}
+
+.nav-container .links a:hover::after,
+.nav-container .links a.active::after {
+    width: 100%;
+}
+
+/* ================= DROPDOWN ================= */
+
+.dropdown {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transform: translateY(-500px);
+    backdrop-filter: brightness(40%) blur(3px);
+    transition: 0.3s;
+}
+
+.dropdown .links a {
+    color: white;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+}
+
+section {
+    width: 100%;
+    height: 90vh;
+}
+
+/* ================= SECTION TITLES ================= */
+
+.section-title {
+  font-size: 3rem;
+  color: rgb(109, 67, 0);
+  text-align: center;
+  font-weight: 500;
+  margin: 40px 020;
+  position: relative;
+  z-index: 2; /* keep text above images */
+}
+
+/* Move frontend title slightly UP */
+.frontend-title h5{
+  margin-top: -1px;
+  margin-bottom: 10px;
+}
+
+
+
+/* ================= GRID ================= */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-bottom: 15px;
+}
+
+/* ================= IMAGE CARD ================= */
+
+/* ================= PROJECT CARD ================= */
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* ================= IMAGE ================= */
+
+.project-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: fill;
+  opacity: 0.2;
+  transition: opacity 0.4s ease;
+}
+
+.project-card:hover img {
+  opacity: 0.8;
+}
+
+/* ================= DARK OVERLAY ================= */
+
+.project-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 1;
+}
+
+/* ================= TEXT OVER IMAGE ================= */
+
+.content-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+/* TEXT ALWAYS VISIBLE */
+.content-overlay h3,
+.content-overlay p {
+  opacity: 1;
+  transform: scale(1); /* default size */
+  transition: transform 0.35s ease;
+}
+
+/* HOVER → SLIGHT TEXT ENLARGE */
+.project-card:hover .content-overlay h3 {
+  transform: scale(1.2);
+}
+
+.project-card:hover .content-overlay p {
+  transform: scale(1.15);
+}
+
+/* TEXT STYLING */
+.content-overlay h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #6d4300;
+  margin-bottom: 1px;
+}
+
+.content-overlay p {
+  font-size: 1rem;
+  color: #5a3b1c;
+  max-width: 240px;
+  line-height: 1.5;
+}
+.project-card:hover .content-overlay h3 {
+  color: #ffd28a; /* warm gold highlight */
+}
+
+.project-card:hover .content-overlay p {
+  color: #ffffff;
+}
+/* Space at bottom of page */
+.skills-section {
+
+  padding-left: 25px;
+  padding-right: 25px;
+}
+

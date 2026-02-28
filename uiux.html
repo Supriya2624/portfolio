@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <title>Supriya Portfolio</title>
+    <link rel="stylesheet" href="uiux.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1000">
+                <span>Brahmanapalli Supriya</span>
+            </div>
+            <div class="links">
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100"><a href="index.html">Home</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"><a href="about.html" >About</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300"><a href="Skills.html" >Skills</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500"><a href="project.html">Projects</a></div>
+                <div class="link contact-btn" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600"><a href="contact.html">Contact Us</a></div>
+            </div>
+            <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+        </div>
+        <div class="dropdown">
+            <div class="links">
+                <a href="home2.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="Skills.html">Skills</a>
+                <a href="Experience.html">Experience</a>
+                <a href="project.html">Projects</a>
+                <a href="contact.html">Contact Us</a>
+                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            </div>
+        </div>
+    </nav>
+    <section class="skill-wrapper">
+        <h2 class="skills-title" data-aos="fade-left" data-aos-duration="1000">
+        UI/UX Designer
+    </h2>
+
+    <div class="skill-card" data-aos="fade-right" data-aos-duration="1000">
+        <div class="skill-icon html">
+           <img src="figma.png" alt="Figma" width="90">
+        </div>
+
+        <div class="skill-content">
+            <h3>Figma</h3>
+            <p>
+                I build clean, semantic, and accessible HTML structures with a strong focus on SEO, performance, and responsive layouts.            </p>
+        </div>
+    </div>
+
+    <div class="skill-card" data-aos="fade-left"data-aos-duration="1000">
+        <div class="skill-icon css">
+            <img src="wix.png" alt="Wix Studio" width="190">
+        </div>
+
+        <div class="skill-content">
+            <h3>Wix Studio</h3>
+            <p>
+                I craft modern, efficient CSS that delivers responsive layouts, smooth interactions, and consistent designs across devices.
+            </p>
+        </div>
+    </div>
+
+    <div class="skill-card" data-aos="fade-right" data-aos-duration="1000">
+        <div class="skill-icon js">
+            <img src="wp.png" alt="Wireframing & Prototyping" width="270">
+        </div>
+
+        <div class="skill-content">
+            <h3>Wireframing & Prototyping</h3>
+            <p>
+                I build scalable JavaScript solutions focused on performance, maintainability, and seamless UI interactions.
+            </p>
+        </div>
+    </div>
+    <div class="skill-card" data-aos="fade-left" data-aos-duration="1000" data-aos-offset="0" data-aos-once="true">
+        <div class="skill-icon html">
+            <img src="ure.png" alt="User Research & Empathy" width="105">
+        </div>
+
+        <div class="skill-content">
+            <h3>User Research & Empathy</h3>
+            <p>
+                I build clean, semantic, and accessible HTML structures with a strong focus on SEO, performance, and responsive layouts.            </p>
+        </div>
+    </div>
+
+    <div class="skill-card" data-aos="fade-right"data-aos-duration="1000">
+        <div class="skill-icon css">
+            <img src="vid.png" alt="Visual & Interaction Design" width="105">
+        </div>
+
+        <div class="skill-content">
+            <h3>Visual & Interaction Design</h3>
+            <p>
+                I craft modern, efficient CSS that delivers responsive layouts, smooth interactions, and consistent designs across devices.
+            </p>
+        </div>
+    </div>
+
+    <div class="skill-card" data-aos="fade-left" data-aos-duration="1000">
+        <div class="skill-icon js">
+            <img src="cc.png" alt="Communication & Collaboration" width="100">
+        </div>
+
+        <div class="skill-content">
+            <h3>Communication & Collaboration</h3>
+            <p>
+                I build scalable JavaScript solutions focused on performance, maintainability, and seamless UI interactions.
+            </p>
+        </div>
+    </div>
+   <div class="btn" data-aos="zoom-out-left" data-aos-duration="1000">
+                    <a href="https://drive.google.com/file/d/1lRxuYt1x0ws9-kKZcZLNgInP78k3ENwR/view?usp=sharing">
+        <button>Resume</button>
+    </a>
+                </div>
+</section>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+AOS.init({
+  offset: 0,
+  delay: 0,
+  duration: 900,
+  easing: 'ease-out-cubic',
+  once: true,
+  mirror: false
+});
+
+/* 🔥 FORCE AOS TO CHECK VISIBILITY ON LOAD */
+window.addEventListener('load', () => {
+  AOS.refreshHard();
+});
+</script>
+
+<!-- MOBILE MENU -->
+<script>
+function hamburg() {
+    document.querySelector(".dropdown").style.transform = "translateY(0)";
+}
+function cancel() {
+    document.querySelector(".dropdown").style.transform = "translateY(-500px)";
+}
+</script>
+
+<!-- NAVBAR SCROLL EFFECT -->
+<script>
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 20) {
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
+});
+</script>
+</body>
+</html>
